@@ -1028,3 +1028,321 @@ a {
   background: #1479ef;
   border-radius: 2px;
 }
+
+.business-model-section {
+  padding: clamp(2.5rem, 4vw, 4rem) clamp(1rem, 4vw, 2.5rem) clamp(3rem, 5vw, 4.5rem);
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.045) 1px, transparent 1px),
+    #ffffff;
+  background-size:
+    48px 48px,
+    48px 48px,
+    auto;
+}
+
+.business-model-inner {
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+.business-model-header {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.business-model-kicker {
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.business-model-kicker::before {
+  content: "";
+  width: 28px;
+  height: 1px;
+  background: var(--green);
+}
+
+.business-model-title {
+  margin: 0.85rem 0 0;
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  font-weight: 700;
+}
+
+.business-model-title-accent {
+  color: #000000;
+  background: linear-gradient(transparent 62%, rgba(57, 255, 20, 0.55) 62%);
+}
+
+.business-model-subtitle {
+  margin: 0.85rem auto 0;
+  max-width: 620px;
+  color: var(--muted);
+  font-size: clamp(1rem, 1.4vw, 1.12rem);
+  line-height: 1.65;
+}
+
+.business-model-grid {
+  margin-top: clamp(2rem, 3.5vw, 3rem);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.business-model-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: 14px;
+  border: 1px solid rgba(0, 0, 0, 0.14);
+  background: #ffffff;
+  padding: 1.35rem 1.25rem 1.25rem;
+}
+
+.business-model-card.is-highlighted {
+  border-color: rgba(57, 255, 20, 0.75);
+  background:
+    radial-gradient(circle at 50% 0%, rgba(57, 255, 20, 0.12), transparent 55%),
+    #ffffff;
+  box-shadow: 0 0 0 1px rgba(57, 255, 20, 0.2);
+}
+
+.business-model-badge {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 28px;
+  padding: 0.2rem 0.75rem;
+  border-radius: 999px;
+  background: var(--green);
+  color: #000000;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.business-model-tier-label {
+  margin: 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #5a5a5a;
+}
+
+.business-model-tier-head {
+  margin-top: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.business-model-tier-head h3 {
+  margin: 0;
+  font-size: 1.35rem;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.business-model-tier-icon {
+  width: 22px;
+  height: 22px;
+  color: #000000;
+  flex-shrink: 0;
+}
+
+.business-model-price {
+  margin-top: 1rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+
+.business-model-price-value {
+  font-size: clamp(2rem, 3vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.business-model-price-suffix {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.business-model-features {
+  margin: 1.15rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  flex: 1;
+}
+
+.business-model-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  color: var(--muted);
+  font-size: 0.94rem;
+  line-height: 1.45;
+}
+
+.business-model-check-icon {
+  width: 18px;
+  height: 18px;
+  margin-top: 0.05rem;
+  flex-shrink: 0;
+  color: #000000;
+  border-radius: 999px;
+  background: rgba(57, 255, 20, 0.2);
+  border: 1px solid rgba(57, 255, 20, 0.55);
+  padding: 2px;
+}
+
+.business-model-cta {
+  margin-top: 1.35rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  width: 100%;
+  border-radius: 12px;
+  font-size: 0.94rem;
+  font-weight: 700;
+  border: 1px solid transparent;
+  transition: border-color 120ms ease, background-color 120ms ease;
+}
+
+.business-model-cta-primary {
+  background: var(--green);
+  color: #000000;
+}
+
+.business-model-cta-secondary {
+  border-color: rgba(0, 0, 0, 0.2);
+  background: #ffffff;
+  color: #000000;
+}
+
+.business-model-cta-secondary:hover,
+.business-model-cta-primary:hover {
+  border-color: rgba(0, 0, 0, 0.35);
+}
+
+@media (max-width: 1050px) {
+  .business-model-grid {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.network-flow-actions {
+  margin-top: 0.9rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.network-flow-actions button {
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.24);
+  background: #ffffff;
+  color: #000000;
+  font-size: 0.86rem;
+  padding: 0.3rem 0.65rem;
+}
+
+@media (max-width: 1180px) {
+  .top-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero-content-layer {
+    padding: 2rem 1.25rem;
+  }
+
+  .network-flow-panels {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero-section {
+    min-height: auto;
+  }
+
+  .hero-content-layer {
+    position: relative;
+    min-height: calc(100vh - 67px);
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1.25rem 2.5rem;
+    transform: translateY(-11%);
+  }
+
+  .hero-copy {
+    width: 100%;
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: clamp(3rem, 14vw, 4.8rem);
+  }
+
+  .hero-bottom-left {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    margin-top: 1.2rem;
+    align-items: center;
+  }
+
+  .globe-controls-panel {
+    top: auto;
+    left: 0.75rem;
+    bottom: 0.75rem;
+    width: min(320px, calc(100vw - 1.5rem));
+    max-height: 48vh;
+    overflow: auto;
+  }
+
+  .network-flow-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .network-flow-sidebar {
+    border-right: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  .network-flow-stage {
+    padding: 1rem 0.8rem;
+  }
+
+}
+
+@media (max-width: 640px) {
+  .network-flow-grid {
+    grid-template-columns: 1fr;
+  }
+}
