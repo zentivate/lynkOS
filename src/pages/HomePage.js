@@ -1,5 +1,5 @@
 import HeroSection from "../components/HeroSection";
-import NetworkFlowSection from "../components/NetworkFlowSection";
+import DemoSection from "../components/DemoSection";
 import ProblemSection from "../components/ProblemSection";
 import TopNav from "../components/TopNav";
 
@@ -9,7 +9,7 @@ function HomePage({ startGlobeAnimation }) {
       <TopNav />
       <HeroSection startGlobeAnimation={startGlobeAnimation} />
       <ProblemSection />
-      <NetworkFlowSection />
+      <DemoSection />
     </main>
   );
 }
