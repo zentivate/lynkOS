@@ -1,4 +1,5 @@
 function FooterSection() {
+  
   return (
     <footer className="lynkos-footer" aria-label="Site footer">
       <div className="lynkos-footer-main">
