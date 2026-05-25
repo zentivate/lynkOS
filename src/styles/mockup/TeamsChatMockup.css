@@ -211,6 +211,65 @@
   white-space: pre-wrap;
 }
 
+.teams-chat-job-block {
+  display: inline-grid;
+  grid-auto-flow: row;
+  width: max-content;
+  max-width: 100%;
+}
+
+.teams-chat-job-block .teams-chat-bubble {
+  width: auto;
+  max-width: 100%;
+}
+
+.teams-chat-job-copy {
+  display: grid;
+  gap: 0.16rem;
+}
+
+.teams-chat-job-title {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.24;
+  font-weight: 700;
+}
+
+.teams-chat-job-line {
+  margin: 0;
+  display: grid;
+  gap: 0.03rem;
+  font-size: 0.84rem;
+  line-height: 1.22;
+}
+
+.teams-chat-job-label {
+  color: #616161;
+  font-weight: 700;
+}
+
+.teams-chat-job-value {
+  color: #242424;
+  font-weight: 500;
+}
+
+.teams-chat-job-submit {
+  width: 100%;
+  margin-top: 0.38rem;
+  border: 1px solid rgba(91, 95, 199, 0.35);
+  border-radius: 9px;
+  padding: 0.44rem 0.55rem;
+  background: #ffffff;
+  color: #1f245f;
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1.1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.36rem;
+}
+
 /* File card inside purple bubble */
 .teams-chat-file-card {
   display: flex;

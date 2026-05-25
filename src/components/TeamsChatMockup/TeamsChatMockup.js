@@ -6,6 +6,7 @@ import {
   MoreHorizontal,
   Phone,
   Plus,
+  Send,
   Smile,
   Video,
 } from "lucide-react";
@@ -13,26 +14,26 @@ import PhoneShell, { PhoneStatusBar } from "../PhoneShell";
 import "../../styles/mockup/TeamsChatMockup.css";
 
 const DEFAULT_MESSAGES = [
-  { id: "ts-1", type: "timestamp", text: "Today 8:12 AM" },
   {
-    id: "in-1",
+    id: "out-need-staff",
+    type: "out",
+    text: "Need 3 weekend staff in Egham. £12/hr. Friday to Sunday. Immediate start..",
+  },
+  {
+    id: "in-job-structured",
     type: "in",
-    sender: "Amanda R.",
-    text: "Can everyone confirm they got the invite?",
+    sender: "LynkOS",
     showAvatar: true,
-  },
-  { id: "in-2", type: "in", sender: "Amanda R.", text: "👍" },
-  { id: "in-3", type: "in", sender: "Elliot E.", text: "Looks great to me!", showAvatar: true },
-  { id: "out-1", type: "out", text: "I updated the trivia deck for Saturday." },
-  {
-    id: "out-2",
-    type: "out",
-    attachment: { kind: "ppt", name: "Birthday_Trivia.ppt", meta: "2.4 MB" },
-  },
-  {
-    id: "out-3",
-    type: "out",
-    attachment: { kind: "xlsx", name: "AddressList2020.xlsx", meta: "2.4 MB" },
+    jobCard: {
+      title: "Job",
+      fields: [
+        { label: "Role", value: "Weekend Staff" },
+        { label: "Location", value: "Egham" },
+        { label: "Pay", value: "£12/hr" },
+        { label: "Availability", value: "Fri–Sun" },
+      ],
+      actionLabel: "Submit for verification",
+    },
   },
 ];
 
@@ -81,8 +82,28 @@ function MessageRow({ message, isGrouped }) {
       )}
       <div className="teams-chat-incoming">
         {!isGrouped ? <span className="teams-chat-sender">{message.sender}</span> : null}
-        <div className="teams-chat-bubble">
-          <p className="teams-chat-bubble-text">{message.text}</p>
+        <div className={message.jobCard ? "teams-chat-job-block" : ""}>
+          <div className="teams-chat-bubble">
+            {message.jobCard ? (
+              <div className="teams-chat-job-copy">
+                <p className="teams-chat-job-title">{message.jobCard.title}</p>
+                {message.jobCard.fields.map((field) => (
+                  <p key={field.label} className="teams-chat-job-line">
+                    <span className="teams-chat-job-label">{field.label}</span>
+                    <span className="teams-chat-job-value">{field.value}</span>
+                  </p>
+                ))}
+              </div>
+            ) : (
+              <p className="teams-chat-bubble-text">{message.text}</p>
+            )}
+          </div>
+          {message.jobCard ? (
+            <button type="button" className="teams-chat-job-submit">
+              <Send size={14} strokeWidth={2.2} />
+              {message.jobCard.actionLabel}
+            </button>
+          ) : null}
         </div>
       </div>
     </div>

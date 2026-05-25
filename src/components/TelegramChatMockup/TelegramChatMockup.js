@@ -1,49 +1,30 @@
-import { CheckCheck, ChevronLeft, Mic, Paperclip, Smile } from "lucide-react";
+import { CheckCheck, ChevronLeft, Mic, Paperclip, Send, Smile } from "lucide-react";
 import PhoneShell, { PhoneStatusBar } from "../PhoneShell";
 import "../../styles/mockup/TelegramChatMockup.css";
 import telegramBackground from "../../assets/telegram.png";
 
 const DEFAULT_MESSAGES = [
-  { id: "out-1", type: "out", text: "Good morning!", time: "10:10", read: true },
-  { id: "out-2", type: "out", text: "Japan looks amazing!", time: "10:10", read: true },
   {
-    id: "out-3",
+    id: "out-need-staff",
     type: "out",
-    time: "10:15",
+    text: "Need 3 weekend staff in Egham. £12/hr. Friday to Sunday. Immediate start..",
+    time: "11:50",
     read: true,
-    attachment: { name: "IMG_0475.PNG", meta: "2.4 MB", thumb: "sunset" },
   },
   {
-    id: "out-4",
-    type: "out",
-    time: "10:15",
-    read: true,
-    attachment: { name: "IMG_0481.PNG", meta: "3.1 MB", thumb: "city" },
-  },
-  {
-    id: "in-1",
+    id: "in-job-structured",
     type: "in",
-    time: "11:40",
-    quote: { author: "Martha Craig", text: "Good morning!" },
-    text: "Do you know what time is it?",
-  },
-  { id: "out-5", type: "out", text: "It's morning in Tokyo 😎", time: "11:43", read: true },
-  { id: "in-2", type: "in", text: "What is the most popular meal in Japan?", time: "11:45" },
-  { id: "in-3", type: "in", text: "Do you like it?", time: "11:45" },
-  { id: "out-6", type: "out", text: "I think top two are:", time: "11:50", read: true },
-  {
-    id: "out-7",
-    type: "out",
     time: "11:51",
-    read: true,
-    attachment: { name: "IMG_0483.PNG", meta: "2.8 MB", thumb: "food" },
-  },
-  {
-    id: "out-8",
-    type: "out",
-    time: "11:51",
-    read: true,
-    attachment: { name: "IMG_0484.PNG", meta: "2.6 MB", thumb: "food2" },
+    jobCard: {
+      title: "Job",
+      fields: [
+        { label: "Role", value: "Weekend Staff" },
+        { label: "Location", value: "Egham" },
+        { label: "Pay", value: "£12/hr" },
+        { label: "Availability", value: "Fri–Sun" },
+      ],
+      actionLabel: "Submit for verification",
+    },
   },
 ];
 
@@ -54,10 +35,21 @@ function MessageBubble({ message, isGrouped }) {
     <div
       className={`telegram-chat-row ${isOutgoing ? "is-out" : "is-in"}${isGrouped ? " is-grouped" : ""}`}
     >
+      <div className={message.jobCard ? "telegram-chat-job-block" : ""}>
       <div
         className={`telegram-chat-bubble${message.attachment ? " has-attachment" : ""}${message.quote ? " has-quote" : ""}`}
       >
-        {message.quote ? (
+        {message.jobCard ? (
+          <div className="telegram-chat-job-copy">
+            <p className="telegram-chat-job-title">{message.jobCard.title}</p>
+            {message.jobCard.fields.map((field) => (
+              <p key={field.label} className="telegram-chat-job-line">
+                <span className="telegram-chat-job-label">{field.label}</span>
+                <span className="telegram-chat-job-value">{field.value}</span>
+              </p>
+            ))}
+          </div>
+        ) : message.quote ? (
           <div className="telegram-chat-quote">
             <span className="telegram-chat-quote-bar" aria-hidden="true" />
             <div className="telegram-chat-quote-copy">
@@ -103,6 +95,13 @@ function MessageBubble({ message, isGrouped }) {
           </div>
         ) : null}
       </div>
+      {message.jobCard ? (
+        <button type="button" className="telegram-chat-job-submit">
+          <Send size={14} strokeWidth={2.2} />
+          {message.jobCard.actionLabel}
+        </button>
+      ) : null}
+      </div>
     </div>
   );
 }
@@ -112,6 +111,8 @@ function TelegramChatMockup({
   messages = DEFAULT_MESSAGES,
   contactName = "Martha Craig",
   lastSeen = "last seen just now",
+  avatarSrc = "",
+  useBrandMarkAvatar = false,
   className = "",
 }) {
   return (
@@ -132,7 +133,15 @@ function TelegramChatMockup({
             <span className="telegram-chat-contact-sub">{lastSeen}</span>
           </div>
 
-          <span className="telegram-chat-avatar" aria-hidden="true" />
+          {useBrandMarkAvatar ? (
+            <div className="brand-mark telegram-chat-brand-mark" aria-hidden="true">
+              <span className="brand-mark-core" />
+            </div>
+          ) : avatarSrc ? (
+            <img src={avatarSrc} alt="" className="telegram-chat-avatar telegram-chat-avatar-image" />
+          ) : (
+            <span className="telegram-chat-avatar" aria-hidden="true" />
+          )}
         </header>
       </div>
 
