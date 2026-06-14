@@ -1,4 +1,5 @@
 import BusinessModelSection from "../components/BusinessModelSection";
+import AIAgentsAppsSection from "../components/AIAgentsAppsSection";
 import HeroSection from "../components/HeroSection";
 import DemoSectionV2 from "../components/DemoSectionV2";
 import FooterSection from "../components/FooterSection";
@@ -13,6 +14,7 @@ function HomePage({ startGlobeAnimation }) {
       <HeroSection startGlobeAnimation={startGlobeAnimation} />
       <ProblemSection />
       <DemoSectionV2 />
+      <AIAgentsAppsSection />
       <BusinessModelSection />
       <TrustSection />
       <FooterSection />
